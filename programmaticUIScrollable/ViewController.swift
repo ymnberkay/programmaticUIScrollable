@@ -15,9 +15,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var collectionView2: UICollectionView!
     var tableView2: UITableView!
     
-    var data: [(String, String)] = [("doner", "Döner"), ("pide", "Pide"), ("evYemegi", "Ev Yemeği"), ("hamburger", "Hamburger"), ("sokak", "Sokak Lezeti")]
+    var data: [(String, String)] = [("lisa", "Lisa"), ("simpson", "Homer"), ("bart", "Bart"), ("marge", "Marge"), ("maggie", "Maggie")]
     
-    var data2: [(String, String)] = [("lisa", "Item"), ("lisa", "Item"), ("lisa", "Item"), ("lisa", "Item"), ("lisa", "Item")]
+    var data2: [(String, String)] = [("kyle", "Kyle"), ("kenny", "Kenny"), ("butters", "Butters"), ("eric", "Eric")]
+    
+    let data3 = [
+            ("lisa", "LISA", "AGE: 8", "Student"),
+            ("simpson", "HOMER", "AGE: 39", "Nuclear Safety Inspector"),
+            ("bart", "BART", "AGE: 10", "Student")
+        ]
+    let data4 = [
+            ("eric", "ERIC", "AGE: 9"),
+            ("kyle", "KYLE", "AGE: 9"),
+            ("butters", "BUTTERS", "AGE: 9")
+        ]
     
     var scrollView: UIScrollView = {
       let sv = UIScrollView()
@@ -91,14 +102,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         tableView1 = UITableView(frame: view.bounds, style: .plain)
         tableView1.delegate = self
         tableView1.dataSource = self
-        tableView1.register(UITableViewCell.self, forCellReuseIdentifier: "CellTable1")
+        tableView1.isScrollEnabled = false
+        tableView1.register(CustomTableViewCell.self, forCellReuseIdentifier: "CellTable1")
         view.addSubview(tableView1)
         tableView1.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             tableView1.topAnchor.constraint(equalTo: collectionView1.bottomAnchor, constant: 30),
             tableView1.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             tableView1.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            tableView1.heightAnchor.constraint(equalToConstant: 300),
+            tableView1.heightAnchor.constraint(equalToConstant: 360),
         ])
     }
     
@@ -106,14 +118,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         tableView2 = UITableView(frame: view.bounds, style: .plain)
         tableView2.delegate = self
         tableView2.dataSource = self
-        tableView2.register(UITableViewCell.self, forCellReuseIdentifier: "CellTable2")
+        tableView2.isScrollEnabled = false
+        tableView2.register(CustomTableView2Cell.self, forCellReuseIdentifier: "CellTable2")
         view.addSubview(tableView2)
         tableView2.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             tableView2.topAnchor.constraint(equalTo: collectionView2.bottomAnchor, constant: 30),
             tableView2.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             tableView2.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            tableView2.heightAnchor.constraint(equalToConstant: 300),
+            tableView2.heightAnchor.constraint(equalToConstant: 500),
         ])
         
     }
@@ -183,31 +196,30 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if tableView == tableView1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CellTable1", for: indexPath)
-            let imageView = UIImageView(frame: CGRect(x: 10, y: 10, width: 60, height: 60)) // Adjust the frame as needed
-            imageView.image = UIImage(named: "marge") // Replace "yourImageName" with the name of your image
-            imageView.contentMode = .scaleAspectFit
-            cell.contentView.addSubview(imageView)
-            let label = UILabel(frame: CGRect(x: 80, y: 20, width: 200, height: 20)) // Adjust the frame as needed
-            label.text = "data[indexPath.row].1"
-            cell.contentView.addSubview(label)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CellTable1", for: indexPath) as! CustomTableViewCell
+            let (imageName, title, subtitle, detail) = data3[indexPath.row]
+            cell.cellImageView.image = UIImage(named: imageName)
+            cell.titleLabel.text = title
+            cell.subtitleLabel.text = subtitle
+            cell.detailLabel.text = detail
             return cell
         } else if tableView == tableView2 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CellTable2", for: indexPath)
-            let imageView = UIImageView(frame: CGRect(x: 10, y: 10, width: 60, height: 60)) // Adjust the frame as needed
-            imageView.image = UIImage(named: "lisa") // Replace "yourImageName" with the name of your image
-            imageView.contentMode = .scaleAspectFit
-            cell.contentView.addSubview(imageView)
-            
-            let label = UILabel(frame: CGRect(x: 80, y: 20, width: 200, height: 20)) // Adjust the frame as needed
-            label.text = "data[indexPath.row].1"
-            cell.contentView.addSubview(label)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CellTable2", for: indexPath) as! CustomTableView2Cell
+            let (imageName, title, subtitle) = data4[indexPath.row]
+            cell.cellImageView.image = UIImage(named: imageName)
+            cell.titleLabel.text = title
+            cell.subtitleLabel.text = subtitle
             return cell
         }
         return UITableViewCell()
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         // Return the desired height for your cells
+        if tableView == tableView1 {
+            return 120
+        } else if tableView == tableView2 {
+            return 100
+        }
         return 100 // Adjust the height value as needed
     }
 }

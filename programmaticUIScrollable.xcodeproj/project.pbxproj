@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE80D7932AE6BD6800ADC52C /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80D7922AE6BD6800ADC52C /* CustomTableViewCell.swift */; };
+		CE80D7952AE6BE3800ADC52C /* CustomTableView2Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80D7942AE6BE3800ADC52C /* CustomTableView2Cell.swift */; };
 		CE8C56FE2AE0937500F01EA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C56FD2AE0937500F01EA6 /* AppDelegate.swift */; };
 		CE8C57002AE0937500F01EA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C56FF2AE0937500F01EA6 /* SceneDelegate.swift */; };
 		CE8C57022AE0937500F01EA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C57012AE0937500F01EA6 /* ViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE80D7922AE6BD6800ADC52C /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		CE80D7942AE6BE3800ADC52C /* CustomTableView2Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableView2Cell.swift; sourceTree = "<group>"; };
 		CE8C56FA2AE0937500F01EA6 /* programmaticUIScrollable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = programmaticUIScrollable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8C56FD2AE0937500F01EA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE8C56FF2AE0937500F01EA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 				CE8C56FF2AE0937500F01EA6 /* SceneDelegate.swift */,
 				CE8C57012AE0937500F01EA6 /* ViewController.swift */,
 				CE8C57112AE093B100F01EA6 /* CustomCollectionViewCell.swift */,
+				CE80D7922AE6BD6800ADC52C /* CustomTableViewCell.swift */,
+				CE80D7942AE6BE3800ADC52C /* CustomTableView2Cell.swift */,
 				CE8C57032AE0937500F01EA6 /* Main.storyboard */,
 				CE8C57062AE0937800F01EA6 /* Assets.xcassets */,
 				CE8C57082AE0937800F01EA6 /* LaunchScreen.storyboard */,
@@ -142,6 +148,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE8C57022AE0937500F01EA6 /* ViewController.swift in Sources */,
+				CE80D7952AE6BE3800ADC52C /* CustomTableView2Cell.swift in Sources */,
+				CE80D7932AE6BD6800ADC52C /* CustomTableViewCell.swift in Sources */,
 				CE8C56FE2AE0937500F01EA6 /* AppDelegate.swift in Sources */,
 				CE8C57002AE0937500F01EA6 /* SceneDelegate.swift in Sources */,
 				CE8C57122AE093B100F01EA6 /* CustomCollectionViewCell.swift in Sources */,
